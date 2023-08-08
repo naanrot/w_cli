@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:args/command_runner.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/services/template_service.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/services/template_service.dart';
 
 /// The command to run
 class CompileCommand extends Command {

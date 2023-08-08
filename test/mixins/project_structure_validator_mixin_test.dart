@@ -1,7 +1,7 @@
-import 'package:stacked_cli/src/constants/message_constants.dart';
-import 'package:stacked_cli/src/exceptions/invalid_stacked_structure_exception.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/mixins/project_structure_validator_mixin.dart';
+import 'package:w_stacked_cli/src/constants/message_constants.dart';
+import 'package:w_stacked_cli/src/exceptions/invalid_stacked_structure_exception.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/mixins/project_structure_validator_mixin.dart';
 import 'package:test/test.dart';
 import '../helpers/test_helpers.dart';
 import 'dart:io';

@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:stacked_cli/src/constants/command_constants.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/services/analytics_service.dart';
-import 'package:stacked_cli/src/services/colorized_log_service.dart';
-import 'package:stacked_cli/src/services/config_service.dart';
+import 'package:w_stacked_cli/src/constants/command_constants.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/services/analytics_service.dart';
+import 'package:w_stacked_cli/src/services/colorized_log_service.dart';
+import 'package:w_stacked_cli/src/services/config_service.dart';
 
 /// helper service to run flutter commands
 class ProcessService {

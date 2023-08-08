@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:ansicolor/ansicolor.dart';
-import 'package:stacked_cli/src/services/file_service.dart';
+import 'package:w_stacked_cli/src/services/file_service.dart';
 
 class ColorizedLogService {
   AnsiPen pen = AnsiPen()..white();

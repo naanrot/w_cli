@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_string_escapes
 
-import 'package:stacked_cli/src/models/template_models.dart';
-import 'package:stacked_cli/src/templates/compiled_templates.dart';
+import 'package:w_stacked_cli/src/models/template_models.dart';
+import 'package:w_stacked_cli/src/templates/compiled_templates.dart';
 
 Map<String, Map<String, StackedTemplate>> kCompiledStackedTemplates = {
   'app': {

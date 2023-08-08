@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:stacked_cli/src/constants/config_constants.dart';
-import 'package:stacked_cli/src/constants/message_constants.dart';
-import 'package:stacked_cli/src/exceptions/config_file_not_found_exception.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/models/config_model.dart';
-import 'package:stacked_cli/src/services/analytics_service.dart';
-import 'package:stacked_cli/src/services/colorized_log_service.dart';
-import 'package:stacked_cli/src/services/file_service.dart';
-import 'package:stacked_cli/src/services/path_service.dart';
+import 'package:w_stacked_cli/src/constants/config_constants.dart';
+import 'package:w_stacked_cli/src/constants/message_constants.dart';
+import 'package:w_stacked_cli/src/exceptions/config_file_not_found_exception.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/models/config_model.dart';
+import 'package:w_stacked_cli/src/services/analytics_service.dart';
+import 'package:w_stacked_cli/src/services/colorized_log_service.dart';
+import 'package:w_stacked_cli/src/services/file_service.dart';
+import 'package:w_stacked_cli/src/services/path_service.dart';
 
 /// Handles app configuration of stacked cli
 class ConfigService {

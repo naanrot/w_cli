@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:recase/recase.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/services/file_service.dart';
-import 'package:stacked_cli/src/templates/compiled_templates.dart';
-import 'package:stacked_cli/src/templates/template_constants.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/services/file_service.dart';
+import 'package:w_stacked_cli/src/templates/compiled_templates.dart';
+import 'package:w_stacked_cli/src/templates/template_constants.dart';
 import 'package:test/test.dart';
 
 import '../helpers/test_helpers.dart';

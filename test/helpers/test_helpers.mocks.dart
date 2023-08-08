@@ -12,18 +12,18 @@ import 'dart:typed_data' as _i7;
 import 'package:ansicolor/ansicolor.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:pubspec_yaml/pubspec_yaml.dart' as _i3;
-import 'package:stacked_cli/src/models/template_models.dart' as _i10;
-import 'package:stacked_cli/src/services/analytics_service.dart' as _i17;
-import 'package:stacked_cli/src/services/colorized_log_service.dart' as _i14;
-import 'package:stacked_cli/src/services/config_service.dart' as _i15;
-import 'package:stacked_cli/src/services/file_service.dart' as _i5;
-import 'package:stacked_cli/src/services/path_service.dart' as _i8;
-import 'package:stacked_cli/src/services/process_service.dart' as _i16;
-import 'package:stacked_cli/src/services/pub_service.dart' as _i18;
-import 'package:stacked_cli/src/services/pubspec_service.dart' as _i13;
-import 'package:stacked_cli/src/services/template_service.dart' as _i9;
-import 'package:stacked_cli/src/templates/template_helper.dart' as _i12;
-import 'package:stacked_cli/src/templates/template_render_functions.dart'
+import 'package:w_stacked_cli/src/models/template_models.dart' as _i10;
+import 'package:w_stacked_cli/src/services/analytics_service.dart' as _i17;
+import 'package:w_stacked_cli/src/services/colorized_log_service.dart' as _i14;
+import 'package:w_stacked_cli/src/services/config_service.dart' as _i15;
+import 'package:w_stacked_cli/src/services/file_service.dart' as _i5;
+import 'package:w_stacked_cli/src/services/path_service.dart' as _i8;
+import 'package:w_stacked_cli/src/services/process_service.dart' as _i16;
+import 'package:w_stacked_cli/src/services/pub_service.dart' as _i18;
+import 'package:w_stacked_cli/src/services/pubspec_service.dart' as _i13;
+import 'package:w_stacked_cli/src/services/template_service.dart' as _i9;
+import 'package:w_stacked_cli/src/templates/template_helper.dart' as _i12;
+import 'package:w_stacked_cli/src/templates/template_render_functions.dart'
     as _i11;
 
 // ignore_for_file: type=lint

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:args/command_runner.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/services/colorized_log_service.dart';
-import 'package:stacked_cli/src/services/process_service.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/services/colorized_log_service.dart';
+import 'package:w_stacked_cli/src/services/process_service.dart';
 
 class LocalizeCommand extends Command {
   final _log = locator<ColorizedLogService>();

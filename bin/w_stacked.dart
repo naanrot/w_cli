@@ -2,19 +2,19 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:args/command_runner.dart';
-import 'package:stacked_cli/src/commands/compile/compile_command.dart';
-import 'package:stacked_cli/src/commands/create/create_command.dart';
-import 'package:stacked_cli/src/commands/delete/delete_command.dart';
-import 'package:stacked_cli/src/commands/generate/generate_command.dart';
-import 'package:stacked_cli/src/commands/init/init_command.dart';
-import 'package:stacked_cli/src/commands/localize/localize_command.dart';
-import 'package:stacked_cli/src/commands/update/update_command.dart';
-import 'package:stacked_cli/src/constants/command_constants.dart';
-import 'package:stacked_cli/src/constants/message_constants.dart';
-import 'package:stacked_cli/src/exceptions/invalid_stacked_structure_exception.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/services/analytics_service.dart';
-import 'package:stacked_cli/src/services/pub_service.dart';
+import 'package:w_stacked_cli/src/commands/compile/compile_command.dart';
+import 'package:w_stacked_cli/src/commands/create/create_command.dart';
+import 'package:w_stacked_cli/src/commands/delete/delete_command.dart';
+import 'package:w_stacked_cli/src/commands/generate/generate_command.dart';
+import 'package:w_stacked_cli/src/commands/init/init_command.dart';
+import 'package:w_stacked_cli/src/commands/localize/localize_command.dart';
+import 'package:w_stacked_cli/src/commands/update/update_command.dart';
+import 'package:w_stacked_cli/src/constants/command_constants.dart';
+import 'package:w_stacked_cli/src/constants/message_constants.dart';
+import 'package:w_stacked_cli/src/exceptions/invalid_stacked_structure_exception.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/services/analytics_service.dart';
+import 'package:w_stacked_cli/src/services/pub_service.dart';
 
 Future<void> main(List<String> arguments) async {
   await setupLocator();

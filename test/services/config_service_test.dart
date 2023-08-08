@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:mockito/mockito.dart';
-import 'package:stacked_cli/src/constants/config_constants.dart';
-import 'package:stacked_cli/src/constants/message_constants.dart';
-import 'package:stacked_cli/src/exceptions/config_file_not_found_exception.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/models/config_model.dart';
-import 'package:stacked_cli/src/services/config_service.dart';
+import 'package:w_stacked_cli/src/constants/config_constants.dart';
+import 'package:w_stacked_cli/src/constants/message_constants.dart';
+import 'package:w_stacked_cli/src/exceptions/config_file_not_found_exception.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/models/config_model.dart';
+import 'package:w_stacked_cli/src/services/config_service.dart';
 import 'package:test/test.dart';
 
 import '../helpers/test_helpers.dart';

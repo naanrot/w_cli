@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import 'package:path/path.dart' as path;
-import 'package:stacked_cli/src/constants/message_constants.dart';
-import 'package:stacked_cli/src/exceptions/invalid_stacked_structure_exception.dart';
-import 'package:stacked_cli/src/locator.dart';
-import 'package:stacked_cli/src/services/config_service.dart';
+import 'package:w_stacked_cli/src/constants/message_constants.dart';
+import 'package:w_stacked_cli/src/exceptions/invalid_stacked_structure_exception.dart';
+import 'package:w_stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/services/config_service.dart';
 
 mixin ProjectStructureValidator {
   final _configService = locator<ConfigService>();

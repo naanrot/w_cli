@@ -1,4 +1,4 @@
-import 'package:stacked_cli/src/locator.dart';
+import 'package:w_stacked_cli/src/locator.dart';
 import 'package:usage/usage_io.dart';
 
 import 'pub_service.dart';
