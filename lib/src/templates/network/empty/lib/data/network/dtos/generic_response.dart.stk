@@ -1,0 +1,25 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:{{packageName}}/data/network/dtos/error_data.dart';
+
+part '{{responseFileName}}.freezed.dart';
+part '{{responseFileName}}.g.dart';
+
+@freezed
+class {{responseName}} with _\${{responseName}} {
+    const factory {{responseName}}(
+        String status,
+        {{responseName}}Data? data,
+        ErrorData? errorData,
+    ) = _{{responseName}};
+
+    factory {{responseName}}.fromJson(Map<String, dynamic> json) => _\${{responseName}}FromJson(json);
+}
+
+@freezed
+class {{responseName}}Data with _\${{responseName}}Data {
+    const factory {{responseName}}Data(
+        dynamic data,
+    ) = _{{responseName}}Data;
+
+    factory {{responseName}}Data.fromJson(Map<String, dynamic> json) => _\${{responseName}}DataFromJson(json);
+}

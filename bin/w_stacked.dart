@@ -6,6 +6,8 @@ import 'package:stacked_cli/src/commands/compile/compile_command.dart';
 import 'package:stacked_cli/src/commands/create/create_command.dart';
 import 'package:stacked_cli/src/commands/delete/delete_command.dart';
 import 'package:stacked_cli/src/commands/generate/generate_command.dart';
+import 'package:stacked_cli/src/commands/init/init_command.dart';
+import 'package:stacked_cli/src/commands/localize/localize_command.dart';
 import 'package:stacked_cli/src/commands/update/update_command.dart';
 import 'package:stacked_cli/src/constants/command_constants.dart';
 import 'package:stacked_cli/src/constants/message_constants.dart';
@@ -41,7 +43,9 @@ Future<void> main(List<String> arguments) async {
     ..addCommand(DeleteCommand())
     ..addCommand(CompileCommand())
     ..addCommand(GenerateCommand())
-    ..addCommand(UpdateCommand());
+    ..addCommand(UpdateCommand())
+    ..addCommand(LocalizeCommand())
+    ..addCommand(InitCommand());
 
   try {
     final argResults = runner.parse(arguments);

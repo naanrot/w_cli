@@ -1,0 +1,8 @@
+{
+  "description": "Add path of the created DTO file in json_converter.dart",
+  "path": "lib/data/converter/json_converter.dart",
+  "identifier": "// @import-json-converter",
+  "template": "import 'package:{{packageName}}/data/network/dtos/{{responseFileName}}.dart';",
+  "error": "Could not find json_converter.dart file in lib/data/network folder",
+  "name": "Add {{responseFileName}} import to json_converter.dart file"
+}

@@ -1,0 +1,18 @@
+enum ErrorType {
+  // Error type w.r.t API error codes
+  notFound,
+  unauthorized,
+  tokenVerificationFailed,
+  userDetailsNotFound,
+  userDeactivated,
+
+  // Error type w.r.t app
+  networkConnection,
+  errorInCreatingUser,
+  imageUploadFailed,
+  imageLoadingFailed,
+
+  // Others
+  unknown,
+  otpSent,
+}

@@ -1,0 +1,15 @@
+import 'package:equatable/equatable.dart';
+import 'package:{{packageName}}/util/enum/error_type.dart';
+
+class Failure extends Equatable {
+  final ErrorType errorType;
+  final String errorMsg;
+
+  const Failure(
+    this.errorType,
+    this.errorMsg,
+  );
+
+  @override
+  List<Object?> get props => [errorType, errorMsg];
+}

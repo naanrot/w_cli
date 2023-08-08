@@ -94,7 +94,10 @@ class TemplateService {
 
     final outputTemplate = Template(kTemplateDataStructure);
     final templateItemsData = {
-      'templateItems': allTemplateItems.map((e) => e.toJson()).toList(),
+      'templateItems': allTemplateItems.map((e) {
+        final updatedTemplate = e.copyWith(path: e.path.replaceAll("\\", "/"));
+        return updatedTemplate.toJson();
+      }).toList(),
     };
 
     final allTemplateItemsContent =
@@ -158,6 +161,8 @@ class TemplateService {
     // Get the template that we want to render
     final template = kCompiledStackedTemplates[templateName]![templateType] ??
         StackedTemplate(templateFiles: []);
+
+    print('Template $template');
 
     await writeOutTemplateFiles(
       template: template,

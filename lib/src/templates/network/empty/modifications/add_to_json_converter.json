@@ -1,0 +1,8 @@
+{
+  "description": "When a DTO is generated add it to json_converter.dart map in network directory",
+  "path": "lib/data/converter/json_converter.dart",
+  "identifier": "// @json-converter",
+  "template": "{{responseName}}: (data) => {{responseName}}.fromJson(data)",
+  "error": "Could not find json_converter.dart file in lib/data/network folder",
+  "name": "Add {{responseName}} to json_converter.dart file"
+}

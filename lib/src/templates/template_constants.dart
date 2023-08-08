@@ -6,6 +6,7 @@ const String kTemplateNameGenerate = 'generate';
 const String kTemplateNameService = 'service';
 const String kTemplateNameView = 'view';
 const String kTemplateNameWidget = 'widget';
+const String kTemplateNameNetworkResponse = 'network';
 
 // ------- Template Types --------
 const String kTemplateTypeEmpty = 'empty';
@@ -130,6 +131,11 @@ const String kTemplatePropertyWidgetFolderName = 'widgetFolderName';
 
 const String kTemplatePropertyWidgetTestHelpersImport =
     'widgetTestHelpersImport';
+
+const String kTemplateNetworkPropertyResponseName = 'responseName';
+const String kTemplateNetworkPropertyResponseFileName = 'responseFileName';
+const String kTemplateNetworkPropertyModelName = 'modelName';
+const String kTemplateNetworkPropertyModelFileName = 'modelFileName';
 
 // -------- Compiled Template Structure ---------
 

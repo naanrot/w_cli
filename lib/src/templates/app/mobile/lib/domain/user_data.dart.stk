@@ -1,0 +1,18 @@
+import 'package:hive/hive.dart';
+import 'package:{{packageName}}/services/user_service.dart';
+
+part 'user_data.g.dart';
+
+@HiveType(typeId: UserService.typeId)
+class UserData {
+  @HiveField(0)
+  final String id;
+
+  @HiveField(1)
+  String? jwtToken;
+
+  @HiveField(2)
+  final String refreshToken;
+
+  UserData(this.id, this.jwtToken, this.refreshToken);
+}

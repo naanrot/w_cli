@@ -1,0 +1,20 @@
+import 'package:{{packageName}}/util/enum/error_type.dart';
+
+extension IntExtension on int {
+  ErrorType get mapToErrorType {
+    switch (this) {
+      case 401:
+        return ErrorType.unauthorized;
+      case 403:
+        return ErrorType.userDeactivated;
+      case 404:
+        return ErrorType.notFound;
+      case 500:
+        return ErrorType.userDetailsNotFound;
+      case 411:
+        return ErrorType.otpSent;
+      default:
+        return ErrorType.unknown;
+    }
+  }
+}

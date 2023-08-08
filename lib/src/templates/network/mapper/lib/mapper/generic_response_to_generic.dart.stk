@@ -1,0 +1,10 @@
+import 'package:{{packageName}}/mapper/base_mapper.dart';
+import 'package:{{packageName}}/domain/model/{{modelFileName}}.dart';
+import 'package:{{packageName}}/data/network/dtos/{{responseFileName}}.dart';
+
+class {{responseName}}To{{modelName}} extends BaseMapper<{{modelName}}, {{responseName}}Data> {
+    @override
+    {{modelName}} map({{responseName}}Data data) {
+
+    }
+}

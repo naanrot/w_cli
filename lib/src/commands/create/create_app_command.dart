@@ -111,6 +111,8 @@ class CreateAppCommand extends Command {
       await _processService.runPubGet(appName: workingDirectory);
       await _processService.runBuildRunner(workingDirectory: workingDirectory);
       await _processService.runFormat(appName: workingDirectory);
+      await _processService.runFlutterNativeSplash(workingDirectory: workingDirectory);
+      await _processService.runEasyLocalization(workingDirectory: workingDirectory);
       await _clean(workingDirectory: workingDirectory);
       unawaited(_analyticsService.createAppEvent(name: appName));
     } catch (e, s) {
@@ -140,18 +142,22 @@ class CreateAppCommand extends Command {
       );
     }
 
-    // Analyze the project and return output lines
-    final issues = await _processService.runAnalyze(appName: workingDirectory);
+    try {
+      // Analyze the project and return output lines
+      final issues = await _processService.runAnalyze(appName: workingDirectory);
 
-    for (var i in issues) {
-      if (!i.endsWith('unused_import')) continue;
+      for (var i in issues) {
+        if (!i.endsWith('unused_import')) continue;
 
-      final log = i.split(' • ')[2].split(':');
+        final log = i.split(' - ')[2].split(':');
 
-      await _fileService.removeLinesOnFile(
-        filePath: '$workingDirectory/${log[0]}',
-        linesNumber: [int.parse(log[1])],
-      );
+        await _fileService.removeLinesOnFile(
+          filePath: '$workingDirectory/${log[0]}',
+          linesNumber: [int.parse(log[1])],
+        );
+      }
+    } catch (e, stack) {
+      _log.error(message: '$e\n$stack');
     }
 
     _log.stackedOutput(message: 'Project cleaned.');

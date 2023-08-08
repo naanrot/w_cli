@@ -1,21 +1,25 @@
 import 'package:{{packageName}}/{{{bottomSheetsPath}}}/notice/notice_sheet.dart';
 import 'package:{{packageName}}/{{{dialogsPath}}}/info_alert/info_alert_dialog.dart';
-import 'package:{{packageName}}/{{{viewImportPath}}}/home/home_view.dart';
-import 'package:{{packageName}}/{{{viewImportPath}}}/startup/startup_view.dart';
+import 'package:{{packageName}}/{{{viewImportPath}}}/splash_screen/splash_screen_view.dart';
+import 'package:{{packageName}}/{{{viewImportPath}}}/my_home_page/my_home_page_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:{{packageName}}/data/network/client/app_chopper_client.dart';
+import 'package:{{packageName}}/services/services.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: HomeView),
-    MaterialRoute(page: StartupView),
+    MaterialRoute(page: MyHomePage),
+    MaterialRoute(page: SplashScreen),
     // @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
+    InitializableSingleton(classType: UserService),
+    LazySingleton(classType: AppChopperClient),
     // @stacked-service
   ],
   bottomsheets: [
@@ -26,5 +30,6 @@ import 'package:stacked_services/stacked_services.dart';
     StackedDialog(classType: InfoAlertDialog),
     // @stacked-dialog
   ],
+  logger: StackedLogger(),
 )
 class App {}

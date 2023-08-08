@@ -50,6 +50,39 @@ class ProcessService {
     );
   }
 
+  /// Runs "dart run flutter_native_splash:create" to create splash screen
+  Future runFlutterNativeSplash({
+    String? workingDirectory,
+  }) async {
+    await _runProcess(
+      programName: ksDart,
+      arguments: [
+        ksRun,
+        ksFlutterNativeSplashCreate,
+      ],
+      workingDirectory: workingDirectory,
+    );
+  }
+
+  Future runEasyLocalization({
+    String? workingDirectory,
+  }) async {
+    await _runProcess(
+      programName: ksDart,
+      arguments: [
+        ksRun,
+        ksEasyLocalizationGenerate,
+        '-S',
+        'assets/translations',
+        '-f',
+        'keys',
+        '-o',
+        'locale_keys.g.dart'
+      ],
+      workingDirectory: workingDirectory,
+    );
+  }
+
   /// Run the `pub run build_runner build --delete-conflicting-outputs` command in the `appName` directory
   ///
   /// Args:
@@ -78,6 +111,15 @@ class ProcessService {
     await _runProcess(
       programName: ksFlutter,
       arguments: pubGetArguments,
+      workingDirectory: appName,
+    );
+  }
+
+  /// It runs the `flutter clean` command in the app's directory
+  Future runFlutterClean({String? appName}) async {
+    await _runProcess(
+      programName: ksFlutter,
+      arguments: [ksClean],
       workingDirectory: appName,
     );
   }

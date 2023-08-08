@@ -74,6 +74,14 @@ Map<String, RenderFunction> renderFunctions = {
       kTemplatePropertyRelativeLocatorFilePath: getFilePath(builder: 'locator'),
     };
   },
+  kTemplateNameNetworkResponse: (ReCase value) {
+    return {
+      kTemplateNetworkPropertyResponseName: '${value.pascalCase}Response',
+      kTemplateNetworkPropertyResponseFileName: '${value.snakeCase}_response',
+      kTemplateNetworkPropertyModelName: value.pascalCase,
+      kTemplateNetworkPropertyModelFileName: value.snakeCase,
+    };
+  }
 };
 
 /// Returns file path of the [builder]

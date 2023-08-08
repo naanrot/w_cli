@@ -34,6 +34,11 @@ const String ksAppMinimalTemplate = 'empty';
 const String ksAppDescription = 'description';
 const String ksAppOrganization = 'org';
 const String ksAppPlatforms = 'platforms';
+const String ksFlutterNativeSplashCreate = 'flutter_native_splash:create';
+const String ksEasyLocalizationGenerate = 'easy_localization:generate';
+const String ksClean = 'clean';
+
+const String ksCreateModel = "create-model";
 
 /// A list of strings that are used to run the run build_runner
 /// [build or watch] --delete-conflicting-outputs command.

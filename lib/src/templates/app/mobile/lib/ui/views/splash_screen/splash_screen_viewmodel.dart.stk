@@ -1,0 +1,29 @@
+import 'package:{{packageName}}/app/app.router.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:stacked/stacked.dart';
+
+class SplashScreenViewModel extends BaseViewModel {
+  var initialRoute = Routes.myHomePage;
+  var loading = true;
+
+  SplashScreenViewModel() {
+    load();
+  }
+
+  Future load() async {
+    //Delaying to mock initialization process...
+    await Future.delayed(const Duration(seconds: 5));
+
+    /*if (!locator<User>().isUserRegistered) {
+      initialRoute = Routes.loginView;
+    }*/
+
+    loading = false;
+    notifyListeners();
+
+    // Use this to use native splash screen as waiting view till initialization
+    // is done, or remove this to use [_SplashPage] widget as waiting view. If
+    // removed, remove [FlutterNativeSplash.preserve] from main.dart as well
+    FlutterNativeSplash.remove();
+  }
+}

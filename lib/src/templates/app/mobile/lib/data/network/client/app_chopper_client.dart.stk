@@ -1,0 +1,15 @@
+import 'package:chopper/chopper.dart';
+import 'package:{{packageName}}/data/converter/json_to_type_converter.dart';
+
+final class AppChopperClient extends ChopperClient {
+  AppChopperClient()
+      : super(
+          baseUrl: Uri.parse(""),
+          interceptors: [
+            HttpLoggingInterceptor(),
+          ],
+          converter: JsonToTypeConverter(),
+          services: [],
+          errorConverter: JsonToTypeConverter(),
+        );
+}

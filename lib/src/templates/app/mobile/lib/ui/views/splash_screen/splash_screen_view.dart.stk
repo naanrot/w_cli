@@ -1,0 +1,117 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:{{packageName}}/app/app.router.dart';
+import 'package:{{packageName}}/ui/themes/themes.dart';
+import 'package:{{packageName}}/util/extensions/build_context_extension.dart';
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import 'splash_screen_viewmodel.dart';
+
+const easyLocalizationAssetPath = "assets/translations";
+
+class SplashScreen extends StatelessWidget {
+  final AdaptiveThemeMode initialThemeMode;
+
+  const SplashScreen(this.initialThemeMode, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return EasyLocalization(
+      supportedLocales: const [Locale('en')],
+      useOnlyLangCode: true,
+      fallbackLocale: const Locale('en'),
+      path: easyLocalizationAssetPath,
+      child: ViewModelBuilder<SplashScreenViewModel>.reactive(
+        viewModelBuilder: () => SplashScreenViewModel(),
+        builder: (context, viewModel, child) {
+          return viewModel.loading
+              ? MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  home: _SplashPage(
+                    initialThemeMode: initialThemeMode,
+                    forceWhiteBg: true,
+                  ),
+                )
+              : AdaptiveTheme(
+                  light: lightTheme,
+                  dark: darkTheme,
+                  initial: initialThemeMode,
+                  builder: (theme, darkTheme) {
+                    return MaterialApp(
+                      theme: theme,
+                      darkTheme: darkTheme,
+                      title: 'Flutter Demo',
+                      debugShowCheckedModeBanner: false,
+                      navigatorKey: StackedService.navigatorKey,
+                      initialRoute: viewModel.initialRoute,
+                      onGenerateRoute: StackedRouter().onGenerateRoute,
+                      navigatorObservers: [StackedService.routeObserver],
+                      locale: context.locale,
+                      localizationsDelegates: context.localizationDelegates,
+                      supportedLocales: context.supportedLocales,
+                    );
+                  },
+                );
+        },
+      ),
+    );
+  }
+}
+
+class _SplashPage extends StatelessWidget {
+  final AdaptiveThemeMode initialThemeMode;
+  final bool forceWhiteBg;
+
+  const _SplashPage({
+    required this.initialThemeMode,
+    required this.forceWhiteBg,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    bool isLight = false;
+
+    if (initialThemeMode.isSystem) {
+      isLight = MediaQuery.of(context).platformBrightness == Brightness.light;
+    } else if (initialThemeMode.isLight) {
+      isLight = true;
+    }
+
+    final backgroundColor =
+        isLight || forceWhiteBg ? Colors.white : Colors.black;
+
+    return Scaffold(
+      backgroundColor: backgroundColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+          statusBarBrightness: Brightness.light,
+        ),
+      ),
+      body: SizedBox(
+        width: context.screenWidth,
+        height: context.screenHeight,
+        child: const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image(
+              image: AssetImage(
+                'assets/images/app_icon.png',
+              ),
+              width: 192,
+              height: 192,
+              fit: BoxFit.fill,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

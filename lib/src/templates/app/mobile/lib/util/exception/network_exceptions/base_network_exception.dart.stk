@@ -1,0 +1,35 @@
+import 'package:{{packageName}}/util/enum/error_type.dart';
+import 'package:{{packageName}}/util/extensions/int_extension.dart';
+
+abstract class NetworkException implements Exception {
+  final int _statusCode;
+  late final String _errorMsg;
+  late final ErrorType _statusCodeType;
+
+  int get statusCode => _statusCode;
+  String get errorMsg => _errorMsg;
+  ErrorType get statusCodeType => _statusCodeType;
+
+  NetworkException({required int statusCode, String? errorMsg}): _statusCode = statusCode {
+    _statusCodeType = _statusCode.mapToErrorType;
+    _errorMsg = errorMsg ?? _getErrorMsg();
+  }
+
+  String _getErrorMsg() {
+    if (statusCodeType == ErrorType.unauthorized) {
+      return 'Unauthorized user';
+    } else if (_statusCode.mapToErrorType == ErrorType.unknown) {
+      return 'Unknown error occurred on the server';
+    } else if (_statusCode.mapToErrorType == ErrorType.notFound) {
+      return 'Specified address not found';
+    } else if (_statusCode.mapToErrorType == ErrorType.unknown) {
+      return 'The request could not be understood by the server due to malformed syntax';
+    } else if (_statusCode.mapToErrorType == ErrorType.networkConnection) {
+      return 'Unable to connect to the server, check internet connection';
+    }
+    return 'Unknown error occurred with status code \$_statusCode';
+  }
+
+  @override
+  String toString() => errorMsg;
+}

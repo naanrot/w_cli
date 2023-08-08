@@ -1,4 +1,5 @@
 import 'package:args/command_runner.dart';
+import 'package:stacked_cli/src/commands/create/create_network_command.dart';
 
 import 'create_app_command.dart';
 import 'create_bottom_sheet_command.dart';
@@ -24,5 +25,6 @@ class CreateCommand extends Command {
     addSubcommand(CreateServiceCommand());
     addSubcommand(CreateViewCommand());
     addSubcommand(CreateWidgetCommand());
+    addSubcommand(CreateNetworkCommand());
   }
 }

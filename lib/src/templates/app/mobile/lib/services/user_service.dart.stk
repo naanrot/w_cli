@@ -1,0 +1,17 @@
+import 'package:stacked/stacked_annotations.dart';
+import 'package:{{packageName}}/util/constants/hive_type_id_constants.dart';
+import 'package:{{packageName}}/domain/user_data.dart';
+
+class UserService implements InitializableDependency {
+  static const typeId = hUserDataTypeId;
+  UserData? _userData;
+
+  @override
+  Future<void> init() async {
+    await _initializeUser();
+  }
+
+  Future _initializeUser() async {
+
+  }
+}

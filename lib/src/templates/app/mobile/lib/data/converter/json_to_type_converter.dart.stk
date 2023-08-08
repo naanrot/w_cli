@@ -1,0 +1,51 @@
+import 'dart:convert';
+
+import 'package:chopper/chopper.dart';
+import 'json_converter.dart';
+import 'package:{{packageName}}/app/app.logger.dart';
+
+class JsonToTypeConverter extends JsonConverter {
+  final Map<Type, Function> typeToJsonFactoryMap = jsonConverters;
+  final log = getLogger("JsonToTypeConverter");
+
+  JsonToTypeConverter();
+
+  @override
+  Response<BodyType> convertResponse<BodyType, InnerType>(Response response) {
+    return response.copyWith(
+      body: fromJsonData<BodyType, InnerType>(
+          response.body, typeToJsonFactoryMap[InnerType]),
+    );
+  }
+
+  @override
+  Response<BodyType> convertError<BodyType, InnerType>(Response response) {
+    return response.copyWith(
+      body: fromJsonData<BodyType, InnerType>(
+          response.body, typeToJsonFactoryMap[InnerType]),
+    );
+  }
+
+  T fromJsonData<T, InnerType>(String jsonData, Function? jsonParser) {
+    var jsonMap = json.decode(jsonData);
+
+    try {
+      if (jsonParser != null) {
+        if (jsonMap is List) {
+          return jsonMap
+              .map(
+                  (item) =>
+              jsonParser(item as Map<String, dynamic>) as InnerType)
+              .toList() as T;
+        }
+
+        return jsonParser(jsonMap);
+      } else {
+        return jsonMap;
+      }
+    } catch (e, stack) {
+      log.e(e, "", stack);
+      return jsonMap;
+    }
+  }
+}

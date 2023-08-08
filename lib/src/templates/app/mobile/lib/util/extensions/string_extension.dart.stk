@@ -1,0 +1,16 @@
+extension StringExtension on String {
+  String replaceMappedWith(Pattern pattern, List<String> values) {
+    var index = 0;
+    return replaceAllMapped(pattern, (match) {
+      return values[index++];
+    });
+  }
+
+  double get toDouble {
+    return double.parse(this);
+  }
+
+  int get toInt {
+    return int.parse(this);
+  }
+}

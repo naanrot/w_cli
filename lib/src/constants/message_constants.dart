@@ -36,7 +36,7 @@ const String kCommandHelpV1 =
     'When v1 or use-builder is provided, ViewModelBuilder will be used instead of StackedView.';
 
 const String kCommandHelpAppMinimalTemplate =
-    'Specifies creating using an application template with a main.dart that is minimal, including no comments.';
+    'Specifies creating using an application template with a main.dart.stk that is minimal, including no comments.';
 
 const String kCommandHelpAppDescription =
     'The description to use for your new Flutter project. This string ends up in the pubspec.yaml file.';
@@ -84,6 +84,8 @@ const String kCommandHelpWatch =
 
 const String kCommandHelpDeleteConflictingOutputs =
     'Assume conflicting outputs in the users package are from previous builds, and skip the user prompt that would usually be provided.';
+
+const String kCommandCreateModel = "Create a model for the DTO with mappper";
 
 const String kConfigFileNotFound =
     'No configuration file found. Default Stacked values will be used.';

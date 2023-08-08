@@ -1,30 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:{{packageName}}/{{{relativeBottomSheetFilePath}}}';
 import 'package:{{packageName}}/{{{relativeDialogFilePath}}}';
 import 'package:{{packageName}}/{{{relativeLocatorFilePath}}}';
-import 'package:{{packageName}}/{{{relativeRouterFilePath}}}';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:{{packageName}}/ui/views/splash_screen/splash_screen_view.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  final widgetBinding = WidgetsFlutterBinding.ensureInitialized();
+
+  final initialThemeMode = await initializeApp(widgetBinding);
+
+  runApp(
+    SplashScreen(initialThemeMode),
+  );
+}
+
+Future<AdaptiveThemeMode> initializeApp(WidgetsBinding binding) async {
+  // The flutter_native_splash screen is set to fullscreen (see pubspec.yaml)
+  // To show notification bar again after splash screen, this is needed. Only for iOS
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+
+  FlutterNativeSplash.preserve(widgetsBinding: binding);
+
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
-  runApp(const MainApp());
+
+  await EasyLocalization.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  return (await AdaptiveTheme.getThemeMode()) ?? AdaptiveThemeMode.light;
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: Routes.startupView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      navigatorObservers: [
-        StackedService.routeObserver,
-      ],
-    );
-  }
-}

@@ -1,0 +1,9 @@
+class AppException implements Exception {
+  final int errorCode;
+  final String errorMsg;
+
+  AppException(this.errorCode, this.errorMsg);
+  
+  @override
+  String toString() => errorMsg;
+}

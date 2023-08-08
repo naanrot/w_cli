@@ -1,0 +1,5 @@
+// @import-json-converter
+
+final jsonConverters = <Type, Function>{
+  // @json-converter
+};
