@@ -2,6 +2,11 @@
 
 This is fork from official [stacked_cli](https://github.com/Stacked-Org/cli) modified for [Wow Labz](https://wowlabz.com/). To know more about stacked_cli and its usage visit their official [docs](https://stacked.filledstacks.com/docs/tooling/stacked-cli)
 
+## Install
+
+Run this command to install the `w_stacked`. This will install as a seperate package and will not update your existing `stacked_cli` if installed.
+`dart pub global activate stacked_cli`
+
 ## How this differs from official stacked_cli
 
 This has all feature supported by official [stacked_cli](https://github.com/Stacked-Org/cli), and also brings extra commands and updates over that. Those are:
