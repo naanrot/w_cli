@@ -5,7 +5,7 @@ This is fork from official [stacked_cli](https://github.com/Stacked-Org/cli) mod
 ## Install
 
 Run this command to install the `w_stacked`. This will install as a seperate package and will not update your existing `stacked_cli` if installed.
-`dart pub global activate stacked_cli`
+`dart pub global activate -sgit https://github.com/naanrot/w_cli`
 
 ## How this differs from official stacked_cli
 
